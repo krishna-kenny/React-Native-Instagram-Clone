@@ -1,7 +1,13 @@
 import React from "react";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Dimensions,
+  StatusBar,
+} from "react-native";
 
 export default function ProfileHeader() {
   const statusBarHeight = StatusBar.currentHeight || 0;
@@ -10,13 +16,13 @@ export default function ProfileHeader() {
     <View style={styles.header}>
       <View style={styles.leftGroup}>
         <TouchableOpacity style={styles.left}>
-          <Text>{"<"}</Text>
+          <Icon name="arrow-left" size={20} color="#eee" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.left}>
-          <Icon name="share" size={20} color="#000" />
+          <Icon name="share" size={20} color="#eee" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.left}>
-          <Icon name="heart" size={20} color="#000" />
+          <Icon name="heart" size={20} color="#eee" />
         </TouchableOpacity>
       </View>
       <Text style={styles.right} numberOfLines={1}>
@@ -33,10 +39,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     borderBottomWidth: 2,
     padding: 12,
-    paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight + 12 : 12,
+    paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight + 6 : 6,
   },
   leftGroup: {
     flexDirection: "row",
@@ -49,10 +55,12 @@ const styles = StyleSheet.create({
     borderRightWidth: 2,
     borderBottomWidth: 2,
     marginRight: 10,
+    borderColor: "#eee",
   },
   right: {
     fontSize: 26,
     paddingRight: 16,
     fontWeight: "bold",
+    color: "#eee",
   },
 });

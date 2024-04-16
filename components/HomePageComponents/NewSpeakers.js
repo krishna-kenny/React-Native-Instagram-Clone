@@ -34,7 +34,7 @@ export default function NewSpeakers() {
 
   const handleNext = () => {
     if (flatListRef.current) {
-      const nextIndex = currentIndex + 1;
+      const nextIndex = (currentIndex + 1) % speakers.length;
       flatListRef.current.scrollToIndex({
         index: nextIndex,
         animated: true,
@@ -102,12 +102,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginBottom: 6,
     position: "relative",
+    borderBottomWidth: 2,
   },
   banner: {
     width: Dimensions.get("window").width,
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
+    height: 300,
   },
   name: {
     fontSize: 24,
@@ -126,7 +128,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     zIndex: 1,
     backgroundColor: "rgba(255, 255, 255, 0.5)",
-    borderBottomWidth: 2,
     justifyContent: "center",
     alignItems: "center",
     width: 40,
@@ -134,10 +135,8 @@ const styles = StyleSheet.create({
   },
   leftArrow: {
     left: 0,
-    borderRightWidth: 2,
   },
   rightArrow: {
     right: 0,
-    borderLeftWidth: 2,
   },
 });

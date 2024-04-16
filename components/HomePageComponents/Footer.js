@@ -26,20 +26,19 @@ export default function Footer() {
 const styles = StyleSheet.create({
   footer: {
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "#fff",
     borderTopWidth: 2,
-    padding: 10,
   },
   button: {
-    flex: 1,
+    flex: 1,   
+    height: 40, 
     justifyContent: "center",
     alignItems: "center",
-    borderBottomWidth: 2,
-    borderLeftWidth: 2,
-    paddingVertical: 5,
-    marginHorizontal: 10,
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
+    borderColor: '#bbb',
   },
   buttonText: {
     fontSize: 18,

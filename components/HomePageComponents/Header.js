@@ -1,33 +1,34 @@
-import React, { useState } from "react";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React from "react";
+import Icon from "react-native-vector-icons/FontAwesome";
 import {
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
   TextInput,
+  StatusBar,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
 
-export default function Header() {
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
-
-  const toggleSearch = () => {
-    setIsSearchVisible(!isSearchVisible);
-  };
-
+export default function Header({ searchToggle, isSearchVisible, reSearch }) {
   return (
     <View style={styles.header}>
       <Text style={styles.title}>VorVertex</Text>
       {isSearchVisible && (
-          <TextInput
-            placeholder="Search..."
-            placeholderTextColor="#999" // Adjust the color as needed
-            style={styles.searchInput}
-          />
+        <TextInput
+          onChangeText={(text) => reSearch(text)}
+          placeholder="Type to search"
+          placeholderTextColor="#999"
+          style={styles.searchBar}
+        />
       )}
-      <TouchableOpacity onPress={toggleSearch} style={styles.searchButton}>
-        <Icon name="search" size={20} color="blue" />
+      <TouchableOpacity
+        onPress={searchToggle}
+      >
+        {isSearchVisible ? (
+          <Icon name="close" size={20} color="red" />
+        ) : (
+          <Icon name="search" size={20} color="red" />
+        )}
       </TouchableOpacity>
     </View>
   );
@@ -38,26 +39,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     borderBottomWidth: 2,
-    padding: 12,
-    paddingTop: StatusBar.currentHeight+'12',
+    padding: 6,
+    paddingTop: StatusBar.currentHeight + 12,
+    paddingHorizontal: 15,
   },
   title: {
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: "bold",
+    color: '#fff',
   },
-  searchButton: {
-    paddingVertical: 5,
-  },
-  searchButtonText: {
-    fontSize: 16,
-    color: "blue",
-  },
-  searchInput: {
+  searchBar: {
     flex: 1,
     height: 35,
-    backgroundColor: "#eee", // Match the text color with the header text
+    backgroundColor: "#222",
+    color: '#eee',
     paddingHorizontal: 10,
     marginHorizontal: 16,
   },

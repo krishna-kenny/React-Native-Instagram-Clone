@@ -8,18 +8,21 @@ import {
   Dimensions,
   ScrollView,
   Image,
+  StatusBar,
 } from "react-native";
 
 // Add this import for the Image component
 
 export default function ProfileData() {
   return (
-    <ScrollView style={styles.container}>
-      <ProfilePhotosBanner />
-      <section />
-      <Feed />
-      <Chat />
-      <SimilarSpeakers />
+    <ScrollView>
+      <View style={styles.container}>
+        <ProfilePhotosBanner />
+        <BioData />
+        <Feed />
+        <Chat />
+        <SimilarSpeakers />
+      </View>
     </ScrollView>
   );
 }
@@ -109,7 +112,7 @@ function ProfilePhotosBanner() {
   );
 }
 
-function section() {
+function BioData() {
   return (
     <>
       <View style={styles.section}>
@@ -201,7 +204,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: "#f4f4f4", // Adjust as needed
+    backgroundColor: "#f4f4f4",
   },
   newProfile: {
     backgroundColor: "#fff",
@@ -209,10 +212,10 @@ const styles = StyleSheet.create({
   },
   banner: {
     width: Dimensions.get("window").width,
-    height: 200, // Adjust as needed
+    height: 200,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#fff", // Placeholder color
+    backgroundColor: "#fff", 
   },
   image: {
     fontSize: 24,
@@ -253,6 +256,10 @@ const styles = StyleSheet.create({
     borderRightWidth: 2,
     borderLeftWidth: 2,
   },
+  SimilarSpeakersTitle: {
+    fontSize: 18,
+    padding: 10,
+  },
   personItem: {
     marginHorizontal: 8,
     alignItems: "center",
@@ -267,9 +274,5 @@ const styles = StyleSheet.create({
   },
   personName: {
     fontSize: 12,
-  },
-  SimilarSpeakersTitle: {
-    fontSize: 18,
-    padding: 10,
   },
 });

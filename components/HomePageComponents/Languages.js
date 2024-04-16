@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 12, marginVertical: 6,
     padding: 15,
     backgroundColor: "#fff",
-    borderTopWidth: 2,
+    borderWidth: 2,
+    borderTopWidth: 10,
   },
 
   languageItem: {
